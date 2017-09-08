@@ -7,6 +7,8 @@ const app = express()
 const config = require('./build/webpack.config')
 const compiler = webpack(config)
 
+const port = process.env.PORT || 3000
+
 app.use(webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath
 }))
@@ -15,6 +17,6 @@ app.use(webpackHotMiddleware(compiler, {
     log: () => {}
 }))
 
-app.listen(3000, function () {
-    console.log('listen at port 3000')
+app.listen(port, function () {
+    console.log(`server started at localhost:${port}`)
 })

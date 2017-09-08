@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const srcPath = path.resolve(__dirname, '../src')
 
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true' // 热重载代码
+
 module.exports = {
-  entry: ['webpack-hot-middleware/client?reload=true', path.join(srcPath, 'main.js')],
+  entry: [path.join(srcPath, 'main.js'), hotMiddlewareScript],
   devtool: '#cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),

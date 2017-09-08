@@ -5,9 +5,9 @@
 </template>
 
 <script>
-//import Vue from 'vue'
-//import vueTap from 'vue-tap'
-//Vue.use(vueTap)
+import Vue from 'vue'
+import vueTap from 'v-tap'
+Vue.use(vueTap)
 
 export default {
   name: 'app',

@@ -1,9 +1,7 @@
 /**
- * Created by lichun on 2017/5/10.
+ * Created by zhangzhichao on 2017/9/8.
  */
 import axios from 'axios'
-
-const errorUrl = 'http://m.sports.baofeng.com/v2.0/data/ball/match/nodata'
 
 const options = {}
 if (process.env.NODE_ENV === 'production') {
@@ -18,14 +16,12 @@ const ajax = function (url, config) {
         if (response.status === 200) {
             return response.data
         } else {
-            window.location = errorUrl
             throw new Error(response.message)
         }
     }).then(resp => {
         if (resp.status === '100') {
             return resp.data
         } else {
-            window.location = errorUrl
             const error = new Error(resp.message)
             error.code = resp.status
             throw error
@@ -37,14 +33,12 @@ ajax.get = function (url, config) {
         if (response.status === 200) {
             return response.data
         } else {
-            window.location = errorUrl
             throw new Error(response.message)
         }
     }).then(resp => {
         if (resp.status === '100') {
             return resp.data
         } else {
-            window.location = errorUrl
             const error = new Error(resp.message)
             error.code = resp.status
             throw error
@@ -56,14 +50,12 @@ ajax.post = function (url, param, config) {
         if (response.status === 200) {
             return response.data
         } else {
-            window.location = errorUrl
             throw new Error(response.message)
         }
     }).then(resp => {
         if (resp.status === '100') {
             return resp.data
         } else {
-            window.location = errorUrl
             const error = new Error(resp.message)
             error.code = resp.status
             throw error
