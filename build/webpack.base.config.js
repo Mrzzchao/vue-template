@@ -5,8 +5,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const srcPath = path.resolve(__dirname, '../src')
-const imagesPath = 'assets/images'
-const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true' // 热重载代码
+const imagesPath = 'assets/images/'
 
 module.exports = {
     entry: {
@@ -25,13 +24,15 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx', '.vue'],
 		alias: {
+            '~': srcPath,  // 解决静态资源解析问题
 			'vue$': 'vue/dist/vue.esm.js',
 			'~common': path.join(srcPath, 'common'),
 			'~components': path.join(srcPath, 'components'),
 			'~directives': path.join(srcPath, 'directives'),
 			'~store': path.join(srcPath, 'store'),
 			'~pages': path.join(srcPath, 'pages'),
-			'~assets': path.join(srcPath, 'assets')
+			'assets': path.join(srcPath, 'assets'),
+            '~assets': path.join(srcPath, 'assets')
 		}
 	},
     module: {
