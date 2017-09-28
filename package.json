@@ -5,8 +5,8 @@
   "author": "zhangzc <mrzzhichao@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "rimraf dist && cross-env NODE_ENV=production RUN_ENV=online webpack --config build/webpack.prod.config.js --progress --hide-modules",
-    "build-online": "rimraf dist && cross-env NODE_ENV=production RUN_ENV=test webpack --config build/webpack.prod.config.js --progress --hide-modules",
+    "build": "rimraf dist && cross-env NODE_ENV=production RUN_ENV=test webpack --config build/webpack.prod.config.js --progress --hide-modules",
+    "build-online": "rimraf dist && cross-env NODE_ENV=production RUN_ENV=online webpack --config build/webpack.prod.config.js --progress --hide-modules",
     "dev": "cross-env ADDRESS=43.247.69.20 NODE_ENV=development RUN_ENV=test node server.js",
     "clean": "rimraf dist/*"
   },
@@ -37,6 +37,7 @@
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-env": "^1.5.1",
+    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "express": "^4.15.4",
