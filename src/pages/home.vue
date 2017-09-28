@@ -10,6 +10,6 @@ export default {
 <style scoped>
     h1 {
         color: red;
-        font-size: 30rem;
+        font-size: 1rem;
     }
 </style>

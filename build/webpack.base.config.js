@@ -6,6 +6,8 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const srcPath = path.resolve(__dirname, '../src')
 const imagesPath = 'assets/images/'
+const vConsolePlugin = require('vconsole-webpack-plugin')
+const isTestEnv = process.env.RUN_ENV === 'test'
 
 module.exports = {
     entry: {
@@ -22,8 +24,12 @@ module.exports = {
 			template: path.resolve(__dirname, '../index.html'),
             chunksSortMode: 'dependency'
 		}),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        new webpack.DefinePlugin({   // 将跨平台变量注入前端
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            'process.env.RUN_ENV': JSON.stringify(process.env.RUN_ENV || 'online')
+        }),
+        new vConsolePlugin({
+            enable: isTestEnv 
         }),
 	],
 	resolve: {

@@ -10,7 +10,7 @@ const config = require('./build/webpack.dev.config')
 const compiler = webpack(config)
 const resolve = file => path.resolve(__dirname, file)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.use('/', express.static(resolve('public')))
 app.use('/', express.static(resolve('dist')))
