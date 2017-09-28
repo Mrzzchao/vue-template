@@ -3,9 +3,8 @@
  */
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const srcPath = path.resolve(__dirname, '../src')
-const imagesPath = 'assets/images/'
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const vConsolePlugin = require('vconsole-webpack-plugin')
 const isTestEnv = process.env.RUN_ENV === 'test'
 
@@ -32,7 +31,7 @@ module.exports = {
         }),
         new vConsolePlugin({
             enable: isTestEnv
-        }),
+        })
 	],
 	resolve: {
 		extensions: ['.js', '.jsx', '.vue'],
