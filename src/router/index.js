@@ -3,16 +3,16 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Demo = require('~pages/demo.vue')
+const Home = require('~pages/home.vue')
 
 export function createRouter() {
     return new VueRouter({
         mode: 'hash',
         routes: [
             {
-                path: '/demo',
-                component: Demo,
-                name: 'demo'
+                path: '/home',
+                component: Home,
+                name: 'home'
             }
         ]
     })

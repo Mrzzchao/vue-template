@@ -1,7 +1,7 @@
 import ajax from '~common/ajax'
 import {mapActions, mapMutations} from '~common/util'
 
-const ns = 'demo'
+const ns = 'home'
 
 const initState = {
     param: null

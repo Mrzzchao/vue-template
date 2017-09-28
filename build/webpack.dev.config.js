@@ -16,11 +16,6 @@ base.entry = entry
 
 module.exports = merge(base, {
 	devtool: '#cheap-module-source-map',
-	output: {
-        filename: '[name].js',
-		path: path.resolve(__dirname, '../dist'),
-		publicPath: '/'
-	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new FriendlyErrorsPlugin()

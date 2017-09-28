@@ -8,10 +8,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')   // 打包成�
 const base = require('./webpack.base.config.js')
 
 module.exports = merge(base, {
-	output: {
-        filename: '[name].js',
-		path: path.resolve(__dirname, '../dist')
-	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.UglifyJsPlugin({

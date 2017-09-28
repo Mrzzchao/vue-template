@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import demo from './demo'
+import home from './home'
 
 Vue.use(Vuex)
 
 export function createStore() {
     return new Vuex.Store({
         modules: {
-            demo
+            home
         }
     })
 }

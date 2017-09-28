@@ -11,6 +11,11 @@ module.exports = {
     entry: {
         app: [path.join(srcPath, 'main.js')]
     },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, '../dist/app')
+        publicPath: '/'
+    },
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'Output Management',
@@ -46,7 +51,7 @@ module.exports = {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'file-loader',
             options: {
-                name: imagesPath + '[name].[ext]?[hash]'
+                name: '[name].[ext]?[hash]'
             }
         }]
     }
