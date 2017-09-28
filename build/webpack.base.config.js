@@ -9,14 +9,16 @@ const imagesPath = 'assets/images/'
 const vConsolePlugin = require('vconsole-webpack-plugin')
 const isTestEnv = process.env.RUN_ENV === 'test'
 
+const prePath = '/app'
+
 module.exports = {
     entry: {
         app: [path.join(srcPath, 'main.js')]
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../dist/app'),
-        publicPath: '/'
+        path: path.resolve(__dirname, `../dist${prePath}`),
+        publicPath: prePath
     },
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -29,7 +31,7 @@ module.exports = {
             'process.env.RUN_ENV': JSON.stringify(process.env.RUN_ENV || 'online')
         }),
         new vConsolePlugin({
-            enable: isTestEnv 
+            enable: isTestEnv
         }),
 	],
 	resolve: {
