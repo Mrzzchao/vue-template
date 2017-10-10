@@ -42,21 +42,24 @@ module.exports = merge(base, {
 	module: {
 		rules:
         [{   // vue组件加载器
-			test: /\.vue$/,
-			loader: 'vue-loader',
-			options: {
-				extractCSS: true,
-				preserveWhitespace: false,
-				postcss: [
-					require('autoprefixer')({
-						browsers: ['last 3 versions']
-					})
-				]
-			}
+            test: /\.vue$/,
+            loader: 'vue-loader',
+            options: {
+                extractCSS: true,
+                preserveWhitespace: false,
+                postcss: [
+                    require('autoprefixer')({
+                        browsers: ['last 3 versions']
+                    })
+                ]
+            }
 		},
         {   // 将css注入到Html文件
 			test: /\.css$/,
-			use: ['css-loader?minimize', 'vue-style-loader']
+			use: ExtractTextPlugin.extract({
+                use: 'css-loader?minimize',
+                fallback: 'vue-style-loader'
+            })
 		}]
 	},
     performance: {
