@@ -7,7 +7,7 @@ const Home = require('~pages/home.vue')
 
 export function createRouter() {
     return new VueRouter({
-        mode: 'hash',
+        mode: 'history',
         routes: [
             {
                 path: '/home',
