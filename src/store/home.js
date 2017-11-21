@@ -4,18 +4,20 @@ import {mapActions, mapMutations} from '~common/util'
 const ns = 'home'
 
 const initState = {
-    param: null
+    teamInfo: null
 }
 
 const actionsInfo = mapActions({
-    getParam({commit}, param) {
-        commit(mTypes.setParam, param)
+    async getTeamInfo({commit}) {
+        const teamInfo = await ajax.get(`/library/zq/teaminfo?teamid=455`)
+        commit(mTypes.setTeamInfo, teamInfo)
+        return teamInfo
     }
 }, ns)
 
 const mutationsInfo = mapMutations({
-    setParam(state, param) {
-        state.param = param
+    setTeamInfo(state, teamInfo) {
+        state.teamInfo = teamInfo
     }
 }, ns)
 

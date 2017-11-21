@@ -79,8 +79,6 @@ app.use('/public', serve('./public', true))
 function render (req, res) {
     const s = Date.now()
 
-    res.setHeader("Content-Type", "text/html")
-    // res.setHeader("Server", serverInfo)
 
     const handleError = err => {
         if (err.url) {

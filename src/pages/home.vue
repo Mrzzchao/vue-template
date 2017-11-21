@@ -1,9 +1,26 @@
 <template>
-    <h1>hello world</h1>
+    <h1>{{teamInfo.teamsxname}}</h1>
 </template>
 
 <script>
+import {aTypes} from '~store/home'
 export default {
+    async asyncData ({store, route: {params}}) {
+        await store.dispatch(aTypes.getTeamInfo)
+    },
+    computed: {
+        teamInfo() {
+            return this.$store.state.home.teamInfo
+        }
+    },
+    methods: {
+        fetchData() {
+            this.$store.dispatch(aTypes.getTeamInfo)
+        }
+    },
+    mounted() {
+//        this.fetchData()
+    }
 }
 </script>
 

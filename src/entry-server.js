@@ -10,6 +10,8 @@ export default context => {
             }
             // 对所有匹配的路由组件调用 `asyncData()`
             Promise.all(matchedComponents.map(Component => {
+                console.log('--------------')
+                console.log(Component)
                 if (Component.asyncData) {
                     return Component.asyncData({
                         store,
