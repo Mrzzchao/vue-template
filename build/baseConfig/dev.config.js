@@ -5,9 +5,9 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const vConsolePlugin = require('vconsole-webpack-plugin')
 
 const config = {
-    devtool: false,
+    devtool: '#cheap-module-source-map',
     performance: {
-    maxEntrypointSize: 300000,
+        maxEntrypointSize: 300000,
         hints: false
     },
     module: {
@@ -32,11 +32,11 @@ const config = {
         ]
     },
     plugins: [
-            new FriendlyErrorsPlugin(),
-            new vConsolePlugin({
-                enable: true
-            })
-        ]
+        new FriendlyErrorsPlugin(),
+        new vConsolePlugin({
+            enable: true
+        })
+    ]
 }
 
-modules.exports = config
+module.exports = config

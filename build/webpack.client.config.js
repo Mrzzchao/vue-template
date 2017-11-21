@@ -1,9 +1,13 @@
+const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
-module.exports = merge(baseConfig, {
-  entry: './src/entry-client.js',
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const config = merge(baseConfig, {
+  entry: {
+      app: './src/entry-client.js'
+  },
   plugins: [
     // 将依赖模块提取到 vendor chunk 以获得更好的缓存，是很常见的做法。
     new webpack.optimize.CommonsChunkPlugin({
@@ -25,8 +29,24 @@ module.exports = merge(baseConfig, {
       name: "manifest",
       minChunks: Infinity
     }),
+    new HtmlWebpackPlugin({
+      filename: 'backup.html',
+      template: path.resolve(__dirname, '../src/index.tpl.html'),
+      inject: true,
+      minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true
+          // more options:
+          // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
+    }),
     // 此插件在输出目录中
     // 生成 `vue-ssr-client-manifest.json`。
     new VueSSRClientPlugin()
   ]
 })
+
+module.exports = config

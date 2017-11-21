@@ -8,6 +8,13 @@ const config = {
         maxEntrypointSize: 300000,
         hints: 'warning'
     },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: 'style.[hash].css',
+            disable: false,
+            allChunks: true
+        })
+    ],
     module: {
         rules: [
             {
@@ -34,4 +41,4 @@ const config = {
     }
 }
 
-modules.exports = config
+module.exports = config

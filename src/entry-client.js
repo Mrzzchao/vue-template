@@ -6,5 +6,5 @@ router.onReady(() => {
     if(window.__INITIAL_STATE__) {
         store.replaceState(window.__INITIAL_STATE__)
     }
-    app.mounted('#app')
+    app.$mount('#app')
 })

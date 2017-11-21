@@ -9,7 +9,7 @@ export default {
 
 <style scoped>
     h1 {
-        color: red;
+        color: black;
         font-size: 1rem;
     }
 </style>

@@ -47,6 +47,6 @@ const config = merge(isProd ? baseProConf : baseDevConf, {
     },
 })
 
-modules.exports = config
+module.exports = config
 
 

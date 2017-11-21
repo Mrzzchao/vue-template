@@ -5,7 +5,7 @@
  const nodeExternals = require('webpack-node-externals')
  const baseConfig = require('./webpack.base.config.js')
  const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
- module.exports = merge(baseConfig, {
+ const config = merge(baseConfig, {
    // 将 entry 指向应用程序的 server entry 文件
    entry: './src/entry-server.js',
    // 这允许 webpack 以 Node 适用方式(Node-appropriate fashion)处理动态导入(dynamic import)，
@@ -35,3 +35,5 @@
      new VueSSRServerPlugin()
    ]
  })
+
+module.exports = config
