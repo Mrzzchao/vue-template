@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Home = require('~pages/home.vue')
+const Home = () => import('~pages/home.vue')
 
 export function createRouter() {
     return new VueRouter({
