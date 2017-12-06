@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const vConsolePlugin = require('vconsole-webpack-plugin')
 const isTestEnv = process.env.RUN_ENV === 'test'
 
-const prePath = '/app'
+const prePath = '/'
 
 module.exports = {
     entry: {
