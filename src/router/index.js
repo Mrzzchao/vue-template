@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Home = require('~pages/home.vue')
-
+const Home = () => import('@pages/home.vue' /* webpackChunkName: "pages/home" */)
+// const Home = require('@pages/home.vue')
+console.log(Home)
 export function createRouter() {
     return new VueRouter({
         mode: 'hash',

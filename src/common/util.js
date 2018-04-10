@@ -1,3 +1,6 @@
+/**
+ * Created by MChao on 2017/9/8.
+ */
 export function mapActions (acts, ns) {
     let aTypes = {}
     let actions = {}

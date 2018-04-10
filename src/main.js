@@ -12,7 +12,7 @@ export function createApp () {
     // create the app instance, injecting both the router and the store
     const app = new Vue(Object.assign({
         router,
-        store
+        store,
     }, App))
 
     app.$mount('#app')

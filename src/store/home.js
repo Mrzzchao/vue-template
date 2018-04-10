@@ -1,5 +1,5 @@
-import ajax from '~common/ajax'
-import {mapActions, mapMutations} from '~common/util'
+import ajax from '@common/ajax'
+import {mapActions, mapMutations} from '@common/util'
 
 const ns = 'home'
 
