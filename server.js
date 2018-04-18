@@ -30,20 +30,20 @@ app.use(webpackHotMiddleware(compiler, {
 
 let ipAddress = process.env.ADDRESS || 'ews.500.com'
 app.use((req, resp, next) => {
-    if (req.originalUrl.indexOf('/ews') === 0) {      // 请求代理中间件
-        forwardRequest({
-            req,
-            resp,
-            host: 'ews.500.com',
-            ip: ipAddress,
-            // ip: '43.247.69.20',
-            // ip: 'ews.500.com',
-            // ip: '10.0.1.31',
-            path: req.originalUrl.replace('/ews', '')
-        })
-    } else {
-        next()
-    }
+  if (req.originalUrl.indexOf('/dev') === 0) {      // 请求代理中间件
+  forwardRequest({
+    req,
+    resp,
+    host: 'c.m.500.com',
+    ip: ipAddress,
+    // ip: '43.247.69.20',
+    // ip: 'ews.500.com',
+    // ip: '10.0.1.31',
+    path: req.originalUrl.replace('/dev', '')
+  })
+} else {
+  next()
+}
 })
 
 
